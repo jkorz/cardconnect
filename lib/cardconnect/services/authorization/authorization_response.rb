@@ -3,7 +3,7 @@ module CardConnect
     class AuthorizationResponse
       include Utils
 
-      FIELDS = [:respstat, :retref, :account, :token, :amount, :merchid, :respcode,
+      FIELDS = [:respstat, :retref, :account, :token, :amount, :merchid, :respcode, :binInfo, :bintype, :receipt,
                 :resptext, :respproc, :avsresp, :cvvresp, :authcode, :commcard, :profileid, :acctid].freeze
 
       attr_accessor(*FIELDS)
