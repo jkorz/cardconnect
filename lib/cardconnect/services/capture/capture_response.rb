@@ -4,7 +4,7 @@ module CardConnect
       include Utils
 
       FIELDS = [:merchid, :account, :amount, :retref, :setlstat, :respproc,
-                :resptext, :commcard, :respstat, :respcode,
+                :resptext, :commcard, :respstat, :respcode, :receipt,
                 :batchid, :token].freeze
 
       # Settlement Statuses
@@ -16,8 +16,10 @@ module CardConnect
       REJECTED      = 'Rejected' # Rejected by the Processor
 
       attr_accessor(*FIELDS)
+      attr_reader :response
 
       def initialize(response)
+        @response = response
         set_attributes(response, FIELDS)
       end
 

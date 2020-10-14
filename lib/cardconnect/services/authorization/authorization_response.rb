@@ -4,16 +4,17 @@ module CardConnect
       include Utils
 
       FIELDS = [:respstat, :retref, :account, :token, :amount, :merchid, :respcode, :binInfo, :bintype, :receipt,
-                :resptext, :respproc, :avsresp, :cvvresp, :authcode, :commcard, :profileid, :acctid].freeze
+                :resptext, :respproc, :avsresp, :cvvresp, :authcode, :commcard, :profileid, :acctid, :emvTagData].freeze
 
       attr_accessor(*FIELDS)
-      attr_reader :errors
+      attr_reader :errors, :response
 
       STATUS_APPROVED = 'A'.freeze
       STATUS_RETRY = 'B'.freeze
       STATUS_DECLINED = 'C'.freeze
 
       def initialize(response)
+        @response = response
         set_attributes(response, FIELDS)
         @errors = []
         process_errors
