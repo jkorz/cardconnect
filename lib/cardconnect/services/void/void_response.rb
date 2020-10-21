@@ -3,8 +3,8 @@ module CardConnect
     class VoidResponse
       include Utils
 
-      FIELDS = [:merchid, :amount, :currency, :retref, :authcode,
-                :respcode, :respproc, :respstat, :resptext].freeze
+      FIELDS = [:merchid, :orderid, :amount, :currency, :retref, :authcode,
+                :respcode, :respproc, :respstat, :resptext, :receipt].freeze
 
       attr_accessor(*FIELDS)
       attr_reader :errors

@@ -5,7 +5,7 @@ module CardConnect
 
       REQUIRED_FIELDS = [:merchid, :retref].freeze
 
-      OPTIONAL_FIELDS = [:amount].freeze
+      OPTIONAL_FIELDS = [:amount, :receipt].freeze
 
       FIELDS = REQUIRED_FIELDS + OPTIONAL_FIELDS
 
